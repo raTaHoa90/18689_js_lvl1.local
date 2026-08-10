@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Тут название вкладки</title>
+        <style>
+            .-c{
+                color: darkcyan;
+            }
+            .-r{
+                color: red;
+            }
+            .-fy{
+                background-color: yellow;
+            }
+            table{
+                border-collapse: collapse;
+            }
+            td, th{
+                border: 2px solid darkblue;
+                padding: 10px;
+            }
+            td:hover, th:hover{
+                background-color: lightyellow;
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <tr><th colspan=4>Таблица допустимых типов данных для JS</th></tr>
+            <tr><th>Название типа</th><th>Тип данных</th><th>typeof</th><th>Возможные значения и константы</th></tr>
+            <tr>
+                <td>Неопределенный</td>
+                <td>undefined</td>
+                <td><span class='-r'>"undefined"</span></td>
+                <td><b>undefined</b>, <b>void</b> 0</td>
+            </tr>
+            <tr>
+                <td>Булевый (логический) тип</td>
+                <td>Boolean</td>
+                <td><span class=-r>"boolean"</span></td>
+                <td><b>false</b>, <b>true</b></td>
+            </tr>
+            <tr>
+                <td rowspan=3>Число</td>
+                <td rowspan=3>Number</td>
+                <td rowspan=3><span class=-r>"number"</span></td>
+                <td><span class=-c>0</span>, <span class=-c>13</span>, <span class=-c>-124</span></td>
+            </tr>
+            <tr><td><span class=-c>54.12</span>, <span class=-c>-24.3e2</span>, <span class=-c>5.512e-12</span></td></tr>
+            <tr><td><span class=-c>NaN</span>, <span class=-c>Infinity</span>, <span class=-c>-Infinity</span></td></tr>
+            <tr>
+                <td>Большие числа</td>
+                <td>BigInt</td>
+                <td><span class=-r>"bigint"</span></td>
+                <td><span class=-c>0n</span>, <span class=-c>1234567890123456789012345678901234567890n</span>, <span class=-c>-235236342351636137454n</span></td>
+            </tr>
+            <tr>
+                <td rowspan=2>Строка</td>
+                <td rowspan=2>String</td>
+                <td rowspan=2><span class=-r>"string"</span></td>
+                <td><span class=-r>"text"</span>, <span class=-r>'Строка'</span></td>
+            </tr>
+            <tr><td><span class=-r>`строка со вставкой значения переменной <span class=-fy>${valueVar}</span>!!!`</span></td></tr>
+			<tr>
+                <td>Уникальная строка</td>
+                <td>Symbol</td>
+                <td><span class=-r>"symbol"</span></td>
+                <td>Symbol(<span class=-r>"text"</span>)</td>
+            </tr>
+            <tr>
+                <td rowspan=2>Объекты</td>
+                <td rowspan=2>Object</td>
+                <td rowspan=2><span class=-r>"object"</span></td>
+                <td>{}, {num:<span class=-c>1</span>, bool: <b>true</b>}</td>
+            </tr>
+            <tr><td><b>null</b></td></tr>
+            <tr>
+                <td rowspan=2>Массив</td>
+                <td rowspan=2>Array</td>
+                <td rowspan=2><span class=-r>"object"</span></td>
+                <td>[], [<span class=-c>1</span>, <b>true</b>]</td>
+            </tr>
+            <tr><td><b>new</b> Array(<span class=-c>10</span>), <b>new</b> Array(<span class=-c>1</span>, <b>true</b>)</td></tr>
+			<tr>
+                <td rowspan=2>Функция / подпрограмма</td>
+                <td rowspan=2>Function</td>
+                <td rowspan=2><span class=-r>"function"</span></td>
+                <td><b>function</b> funcName( param1_Name, param2_Name ){ ... }</td>
+            </tr><td>(param1_Name, param2_Name) => ...</td></tr>
+			
+			<tr>
+                <td rowspan=2>Регулярные выражения</td>
+                <td rowspan=2>RegExp</td>
+                <td rowspan=2><span class=-r>"object"</span></td>
+                <td><span class=-r>/регулярное выражение/g</span></td>
+            </tr><td><b>new</b> RegExp(<span class=-r>"регулярное выражение"</span>,<span class=-r>"g"</span>)</td></tr>
+			<tr>
+        </table>
+    </body>
+</html>

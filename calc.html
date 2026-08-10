@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор</title>
+    <script src="js/calc.js"></script>
+    <style>
+        input[type='button'] {
+            width: 100%;
+            height: 30px;
+        }
+
+        input[readonly] {
+            text-align: right;
+            padding: 10px;
+        }
+
+        body {
+            min-height: 95vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .calc {
+            border: double 5px black;
+            border-radius: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calc">
+        <table>
+            <tr>
+                <td colspan="4" ><input id="display" readonly value="0"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="CE" onclick="clearDisplay()"></td>
+                <td><input type="button" value="C" onclick="clearDisplay()"></td>
+                <td colspan="2"><input type="button" value="&lt;=" onclick="backSpace()"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="7" onclick="addDigit(this)"></td>
+                <td><input type="button" value="8" onclick="addDigit(this)"></td>
+                <td><input type="button" value="9" onclick="addDigit(this)"></td>
+                <td><input type="button" value="/" onclick="setOperation('/')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="4" onclick="addDigit(this)"></td>
+                <td><input type="button" value="5" onclick="addDigit(this)"></td>
+                <td><input type="button" value="6" onclick="addDigit(this)"></td>
+                <td><input type="button" value="*" onclick="setOperation('*')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="1" onclick="addDigit(this)"></td>
+                <td><input type="button" value="2" onclick="addDigit(this)"></td>
+                <td><input type="button" value="3" onclick="addDigit(this)"></td>
+                <td><input type="button" value="-" onclick="setOperation('-')"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="0" onclick="addDigit(this)"></td>
+                <td><input type="button" value="."></td>
+                <td><input type="button" value="=" onclick="enterCalc()"></td>
+                <td><input type="button" value="+" onclick="setOperation('+')"></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
