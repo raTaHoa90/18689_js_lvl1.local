@@ -1,5 +1,6 @@
 var backValue = 0, 
-    operation = '';
+    operation = '',
+    hasDot = false;
 
 
 /*
@@ -10,19 +11,36 @@ var backValue = 0,
 function addDigit( btn ) {
     let display = document.getElementById('display'); // найти Input id='display'
 
-    if(display.value == 0 || operation == '='){
+    if(display.value === '0' || operation == '='){
         display.value = btn.value;
         if(operation == '=')
             operation = '';
     } else {
-        display.value = display.value + btn.value;
+        display.value += btn.value;
     }
+}
+
+function setDot(){
+    if(hasDot)
+        return;
+
+    let display = document.getElementById('display');
+
+    hasDot = true;
+    if(operation == '='){
+        display.value = '0.';
+        operation = '';
+    } else
+        display.value += '.';
 }
 
 function backSpace(){
     let display = document.getElementById('display'),
         len = display.value.length;
     
+    if(display.value[len - 1] == '.')
+        hasDot = false;
+
     display.value = display.value.substr(0, len - 1); // 1234 => 123
 
     if(display.value == '')
@@ -78,6 +96,7 @@ function setOperation(oper){
     operation = oper;
     backValue = value;
     display.value = 0;
+    hasDot = false;
 }
 
 function enterCalc() {
@@ -89,4 +108,5 @@ function enterCalc() {
     operation = '=';
     backValue = 0;
     display.value = value;
+    hasDot = false;
 }
