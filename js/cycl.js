@@ -67,5 +67,12 @@ document.writeln('</ul>');
 console.log(cars.map(car => car + ' !'));
 //console.log(cars.map(function(car){ return car + ' !'; }));
 
-cars.reduce((value, car) => value + ' ' + car, ''); // => 'vaz kia audi bmw '
+console.log(cars.reduce((value, car) => value + ' ' + car, '')); // => 'vaz kia audi bmw '
 
+console.log(cars.filter(car => car != 'audi')); // [vaz, kia, bmw]
+
+
+// [...].forEach(func) - пробежаться по всем элементам массива
+// [...].map(func)     - изменить все элементы массива, по заданному алгоритму
+// [...].filter(func)  - вернуть все элементы массива, которые вернут из переданной функции true
+// [...].reduce(func, initValue) - пробежаться по всем элементам и собрать например их сумму
