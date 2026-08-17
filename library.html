@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Домашняя библиотека</title>
+    <script src="js/Library.js"></script>
+    <style>
+        .panel {
+            border: solid 1px black;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px;
+            box-sizing: border-box;
+        }
+    </style>
+    <script>
+        var library = new Library("Библиотека книг", "library", 'viewTable');
+
+        function loadPage(){
+            library.init();
+            library.load('library');
+            library.draw();
+            //document.getElementById('viewTable').innerHTML = library.getTable();
+        }
+
+        function AddBook(){
+            let nameBook = document.getElementById('nameBook'),
+                bookDesc = document.getElementById('bookDesc'),
+                numBookcase = document.getElementById('numBookcase'),
+                numShelf = document.getElementById('numShelf');
+            library.add(
+                nameBook.value, 
+                bookDesc.value, 
+                numBookcase.value, 
+                numShelf.value
+            );
+            nameBook.value = '';
+            bookDesc.value = '';
+            numBookcase.value = '';
+            numShelf.value = '';
+
+            library.draw();
+
+            library.save();
+        }
+    </script>
+</head>
+<body onload="loadPage()">
+    <h1>Домашняя библиотека</h1>
+    <div id="viewTable"></div>
+
+    <div class="panel">
+        <table>
+            <tr>
+                <td>Название книги</td>
+                <td><input id="nameBook"></td>
+            </tr>
+            <tr>
+                <td>Описание</td>
+                <td><textarea id="bookDesc" rows="10" cols="50"></textarea></td>
+            </tr>
+            <tr>
+                <td>Номер шкафа</td>
+                <td><input id="numBookcase"></td>
+            </tr>
+            <tr>
+                <td>Номер полки</td>
+                <td><input type="number" min="1" max="20" id="numShelf"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="button" value="Добавить" onclick="AddBook()">
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
