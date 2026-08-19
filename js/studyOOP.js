@@ -129,6 +129,7 @@ console.log(library);
 // =======================================================================
 
 function Library(name, data){
+    var privateVar = 0;
     this.NAME = name;
     this.length = 0;
 
