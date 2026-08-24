@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORMS</title>
+    <script src="js/l2/forms.js"></script>
+    <style>
+        #errors div {
+            border: solid 1px darkred;
+            background-color: red;
+            color: yellow;
+            font-weight: bold;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body onload="init()">
+    <div id="errors">
+
+    </div>
+
+    <form action="?" id="mainForm">
+        <fieldset style="text-align:left; margin: 10px;" name="persons"><legend>Test</legend>
+            text
+            <input type="hidden" name="personid" value="423452">
+            <input name="personName" value="NoName">
+        </fieldset>
+
+        
+        <table>
+            <tr>
+                <td>Введите ФИО:</td>
+                <td><input type="text" value="???" placeholder="Введите ФИО" name="fio"></td>
+            </tr>
+            <tr>
+                <td>Ваш пол:</td>
+                <td>
+                    <label><input type="radio" name="gender">М</label>
+                    <label><input type="radio" checked name="gender">Ж</label>
+                    <label><input type="radio" disabled name="gender">??</label>
+                </td>
+            </tr>
+            <tr>
+                <td>Вам уже испольнилось 18?</td>
+                <td>
+                    <label><input type="checkbox" name="isAgeGt18"> Да</label>
+                </td>
+            </tr>
+            <tr>
+                <td>Укажите ваше день рождение:</td>
+                <td><input type="date" name="birthday"></td>
+            </tr>
+            <tr>
+                <td>Сколько вам полных лет:</td>
+                <td><input type="number" min="6" max="120" value="18" step="2" name="age"></td>
+            </tr>
+            <tr>
+                <td>Ваша почта:</td>
+                <td><input type="email" name="email" required placeholder="example@mail.ru"></td>
+            </tr>
+            <tr>
+                <td>На сколько вам нравиться текущий опрос:</td>
+                <td><input type="range" min="1" max="10" step="2" name="stars"></td>
+            </tr>
+            <tr>
+                <td>Введите ваш пароль от почты:</td>
+                <td><input type="password" name="pass"></td>
+            </tr>
+            <tr>
+                <td>Какую вы предпочитаете ОС:</td>
+                <td><select name="favoriteOS">
+                    <option disabled>PC</option>
+                    <optgroup>
+                        <option value="123">Windows</option>
+                        <option>Linux</option>
+                        <option>Mac OS</option>
+                    </optgroup>
+                    <option disabled>Mobile</option>
+                    <optgroup>
+                        <option selected>Android</option>
+                        <option>iOS</option>
+                    </optgroup>
+                    <option>MS-DOS</option>
+                </select></td>
+            </tr>
+            <tr>
+                <td>Какую вы предпочитаете ОС:</td>
+                <td><select multiple name="favoriteOSMulti[]">
+                    <option disabled>PC</option>
+                    <optgroup>
+                        <option>Windows</option>
+                        <option>Linux</option>
+                        <option>Mac OS</option>
+                    </optgroup>
+                    <option disabled>Mobile</option>
+                    <optgroup>
+                        <option selected>Android</option>
+                        <option>iOS</option>
+                    </optgroup>
+                    <option>MS-DOS</option>
+                </select></td>
+            </tr>
+            <tr>
+                <td>Ваше хобби:</td>
+                <td><textarea rows="10" name="hobby">askdj</textarea></td>
+            </tr>
+            <tr>
+                <td>Прогресс</td>
+                <td><progress value="10" min="0" max="100" name="progress">10 / 100</progress></td>
+            </tr>
+            <tr>
+                <td>файл</td>
+                <td><input type="file" name="filedata"></td>
+            </tr>
+            <tr>
+                <td>Управление данными:</td>
+                <td>
+                    <input type="button" value="<!!!>">
+                    <button type="button">
+                        <b>Test</b> <i>Test</i>
+                    </button>
+                    <input type="reset" value="Сбросить">
+                    <input type="submit" value="Отправить">
+                </td>
+            </tr>
+
+        </table>
+    </form>
+</body>
+</html>
