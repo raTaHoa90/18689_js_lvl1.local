@@ -1,4 +1,5 @@
-var resultError = false;
+var resultError = false,
+    form;
 
 function isValidEmail(email){
     // \w = [a-zA-Z0-9] ..
@@ -15,12 +16,58 @@ function addError(textError){
     elem.onclick = function(){ this.remove(); };
     document.getElementById('errors').append(elem);
     resultError = true;
+    setTimeout(_=>elem.remove(), 3000);
 }
 
 function init(){
+    form = document.forms.mainForm;
 
+    form.onsubmit = function(){
+        resultError = false;
+        if(!isValidEmail(form.email.value)){
+            resultError = true;
+
+            form.email.setCustomValidity('Неправильно введен Email-адрес');
+            form.email.reportValidity();
+        } else 
+            form.email.setCustomValidity('');
+
+        return !resultError;
+    }
 }
 
+function validation(){
+    resultError = false;
+    
+    // проверяем валидацию браузера
+    for(let input of form.elements)
+        if(!input.validity.valid){
+            if(input.value == 0 && input.required)
+                addError(input.name + ' ' + input.validationMessage);
+            else
+                addError(input.validationMessage);
+        }
+
+    if(!isValidEmail(form.email.value))
+        addError('Неправильно введен Email-адрес');
+
+    if(!resultError)
+        form.submit();
+}
+
+/* input.validity
+    .valid:           возвращает булевое значение, которое указывает, проходит ли элемент формы валидацию (true) или нет (false)
+    .valueMissing:    возвращает true, если в элементе формы, который требует обязательного ввода, отсутствует значение
+    .typeMismatch:    возвращает true, если введенное значение не соответствует типу элемента формы (например, в элемент <input type="email"> введен текст, которые не является адресом элементронной почты)
+    .patternMismatch: возвращает true, если введенное значение не соответствует указанному шаблону
+    .tooLong:         возвращает true, если введенное значение превышает максимально допустимый лимит
+    .tooShort:        возвращает true, если введенное значение меньше минимально допустимого значения
+    .rangeUnderflow:  возвращает true, если введенное значение меньше диапазона допустимых значений
+    .rangeOverflow:   возвращает true, если введенное значение превышает диапазон допустимых значений
+    .stepMismatch:    возвращает true, если введенное значение не соответствует значению атрибута step
+    .badInput:        возвращает true, если введенное значение некорректно
+    .customError:     возвращает true, если при вводе была сгенерирована кастомная ошибка
+*/
 
 /* FORM
     form.action

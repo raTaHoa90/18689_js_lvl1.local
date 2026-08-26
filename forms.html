@@ -6,6 +6,10 @@
     <title>FORMS</title>
     <script src="js/l2/forms.js"></script>
     <style>
+        html {
+            scroll-behavior: smooth;
+            user-select: none;
+        }
         #errors div {
             border: solid 1px darkred;
             background-color: red;
@@ -19,6 +23,7 @@
     </style>
 </head>
 <body onload="init()">
+    <a name="up"></a>
     <div id="errors">
 
     </div>
@@ -34,7 +39,7 @@
         <table>
             <tr>
                 <td>Введите ФИО:</td>
-                <td><input type="text" value="???" placeholder="Введите ФИО" name="fio"></td>
+                <td><input type="text" pattern="\w*" value="???" placeholder="Введите ФИО" name="fio"></td>
             </tr>
             <tr>
                 <td>Ваш пол:</td>
@@ -124,11 +129,30 @@
                         <b>Test</b> <i>Test</i>
                     </button>
                     <input type="reset" value="Сбросить">
-                    <input type="submit" value="Отправить">
+                    <input type="submit" value="Отправить" onclick="validation()">
                 </td>
             </tr>
 
         </table>
     </form>
+    <br><br><br><br><br>
+    <br><br><br><br><br>
+    <br><br><br><br><br>
+    <br><br><br><br><br>
+    <br><br><br><br><br>
+
+    <br><br><br><br><br>
+    <br><br><br><br><br>
+    <br><br><br><br><br>
+    <br><br><br><br><br>
+    <br><br><br><br><br>
+
+    <br><br><br><br><br>
+    <br><br><br><br><br>
+    <br><br><br><br><br>
+    <br><br><br><br><br>
+    <br><br><br><br><br>
+    DOWN
+    <a name="down"></a>
 </body>
 </html>
