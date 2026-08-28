@@ -1,0 +1,11 @@
+{
+    "id": 123,
+    "tags": ["123", 321, true, null],
+    "sub": {
+        "items": [
+            {"id":1, "value":123},
+            {"id":2, "value":321}
+        ],
+        "count": 2
+    }
+}
